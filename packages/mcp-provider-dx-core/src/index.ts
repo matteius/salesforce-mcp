@@ -16,6 +16,7 @@
 
 import { McpProvider, McpTool, Services } from '@salesforce/mcp-provider-api';
 import { AssignPermissionSetMcpTool } from './tools/assign_permission_set.js';
+import { CreateCustomFieldsMcpTool } from './tools/create_custom_fields.js';
 import { CreateOrgSnapshotMcpTool } from './tools/create_org_snapshot.js';
 import { CreateScratchOrgMcpTool } from './tools/create_scratch_org.js';
 import { DeleteOrgMcpTool } from './tools/delete_org.js';
@@ -37,6 +38,7 @@ export class DxCoreMcpProvider extends McpProvider {
   public provideTools(services: Services): Promise<McpTool[]> {
     return Promise.resolve([
       new AssignPermissionSetMcpTool(services),
+      new CreateCustomFieldsMcpTool(services),
       new CreateOrgSnapshotMcpTool(services),
       new CreateScratchOrgMcpTool(services),
       new DeleteOrgMcpTool(services),
